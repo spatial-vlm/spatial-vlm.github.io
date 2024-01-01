@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="SpatialVLM: a visual language model from Google Deepmind that natively understand and reason about spatial relationships."
+    />
+    <meta
+      name="keywords"
+      content="VLM, spatial, Large Language Model, LLM, multi-modal, visual language model, distance estimation"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      SpatialVLM: Endowing Vision-Language Models with Spatial Reasoning
+      Capabilities
+    </title>
+
+    <!--TWITTER TODO-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Spatial-VLM" />
+    <meta
+      name="twitter:description"
+      content="SpatialVLM: A visual language model that natively understand and reason about spatial relationships"
+    />
+    <meta
+      name="twitter:image"
+      content="https://nlmap-saycan.github.io/figures/teaser.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <link rel="icon" href="./static/images/favicon.svg" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Spatial VLM: Endowing Vision-Language Models with Spatial
+                Reasoning Capabilities
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://boyuan.space/">Boyuan Chen</a
+                  ><sup>1,2</sup>,</span
+                >
+                <span class="author-block">
+                  <a
+                    href="https://scholar.google.com/citations?user=mIlaYj0AAAAJ&hl=en"
+                    >Zhuo Xu</a
+                  ><sup>1</sup>,</span
+                >
+                <span class="author-block">
+                  <a href="https://kirmani.ai/">Sean Kirmani</a
+                  ><sup>1</sup>,</span
+                >
+                <span class="author-block">
+                  <a href="https://brianichter.com/">Brian Ichter</a
+                  ><sup>1</sup>,</span
+                >
+                <span class="author-block">
+                  <a href="https://www.peteflorence.com/">Pete Florence</a
+                  ><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://dannydriess.github.io/">Danny Driess</a
+                  ><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://dorsa.fyi/">Dorsa Sadigh</a><sup>1,3</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://geometry.stanford.edu/member/guibas/"
+                    >Leonidas Guibas</a
+                  ><sup>1,3</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://fxia22.github.io/">Fei Xia</a><sup>1</sup>
+                </span>
+              </div>
+
+              <br />
+              <div class="is-size-5 publication-authors">
+                <ul class="affiliation-list">
+                  <li class="affiliation">
+                    <img
+                      src="./static/images/deepmind.jpg"
+                      alt="Deepmind Logo"
+                      class="logo"
+                    />
+                    <span class="author-block"
+                      ><sup>1</sup>Google Deepmind</span
+                    >
+                  </li>
+                  <li class="affiliation">
+                    <img
+                      src="./static/images/mit.jpg"
+                      alt="MIT Logo"
+                      class="logo"
+                    />
+                    <span class="author-block"><sup>2</sup>MIT</span>
+                  </li>
+                  <li class="affiliation">
+                    <img
+                      src="./static/images/stanford.jpg"
+                      alt="Stanford Logo"
+                      class="logo"
+                    />
+                    <span class="author-block"
+                      ><sup>3</sup>Stanford University</span
+                    >
+                  </li>
+                </ul>
+              </div>
+              <br />
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href="todo"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <!-- Video Link. -->
+                  <span class="link-block">
+                    <a
+                      href="todo"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>Video</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paper video. -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <!-- <h2 class="title is-3">Video</h2> -->
+              <div class="publication-video">
+                <iframe
+                  src="todo"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+          <!--/ Paper video. -->
+        </div>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              Understanding and reasoning about spatial relationships is a
+              fundamental capability for Visual Question Answering (VQA) and
+              robotics. While Vision Language Models (VLM) have demonstrated
+              remarkable performance in certain VQA benchmarks, they still lack
+              capabilities in 3D spatial reason ing, such as recognizing
+              qualitative relationships of physical objects like distances or
+              size difference. We hypothesize that VLMs' limited spatial
+              reasoning capability is due to the lack of 3D spatial knowledge in
+              training data and aim to solve this problem by training VLMs with
+              Internet-scale spatial reasoning data. To this end, we present a
+              system to facilitate this approach. We first develop an automatic
+              3D spatial VQA data generation framework that scales up to 2
+              billion VQA examples on 10 million real-world images. We then
+              investigate various factors in training recipe including data
+              quality, training pipeline and VLM architecture. Our work features
+              the first Internet-scale 3D spatial reasoning dataset in metric
+              space. By co-training a VLM on such data, we significantly enhance
+              its ability on both qualitative and quantitative spatial VQA.
+              Finally, we demonstrate that this VLM unlocks novel downstream
+              applications 020 in chain-of-thought spatial reasoning and
+              robotics due to its quantitative estimation capability
+              <!--/ Abstract. -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width has-text-justified">
+            <h2 class="title is-3 has-text-centered">Problem Setup</h2>
+            <div class="content has-text-justified">
+              <p>todo</p>
+            </div>
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/problem.png"
+                class="inline-figure-six"
+                alt="RaMP is a self-supervised reinforcement learning algorithm that pre-training on exploration trajectories
+                without (or with unknown) reward. It then quickly adapts to new tasks through interaction with the environment."
+              />
+            </div>
+            <div class="content has-text-justified">
+              <p>todo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full-width has-text-justified">
+            <h2 class="title is-3 has-text-centered">Method Overview</h2>
+            <h3 class="title is-4">Key Insight</h3>
+            <div class="content has-text-justified">
+              <p>todo</p>
+            </div>
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/method.png"
+                class="inline-figure-six"
+                alt="Method"
+              />
+            </div>
+            <h3 class="title is-4">todo</h3>
+            <div class="content has-text-justified">
+              <p>todo</p>
+            </div>
+            <h3 class="title is-4">todo</h3>
+            <div class="content has-text-justified">
+              <p>todo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full-width has-text-justified">
+            <h2 class="title is-3 has-text-centered">Experiments</h2>
+
+            <h3 class="title is-4">todo</h3>
+            <div class="content has-text-justified">
+              <p>todo</p>
+            </div>
+
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/goal_dist.png"
+                class="inline-figure-four-thirds"
+                alt="Goal distribution."
+              />
+            </div>
+
+            <div class="content has-text-justified">
+              <p>todo</p>
+            </div>
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/curves.png"
+                class="inline-figure-four-thirds"
+                alt="Comparison with baselines."
+              />
+            </div>
+            <h3 class="title is-4">todo</h3>
+            <div class="content has-text-justified">
+              <p>todo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title has-text-centered">BibTeX</h2>
+        <pre><code>todo</code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content has-text-centered">
+              <p>
+                Website template from
+                <a href="https://nerfies.github.io/">Nerfies</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
