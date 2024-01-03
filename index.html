@@ -80,11 +80,11 @@
                   ><sup>1</sup>,</span
                 >
                 <span class="author-block">
-                  <a href="https://www.peteflorence.com/">Pete Florence</a
+                  <a href="https://dannydriess.github.io/">Danny Driess</a
                   ><sup>1</sup>,
                 </span>
                 <span class="author-block">
-                  <a href="https://dannydriess.github.io/">Danny Driess</a
+                  <a href="https://www.peteflorence.com/">Pete Florence</a
                   ><sup>1</sup>,
                 </span>
                 <span class="author-block">
@@ -166,9 +166,9 @@
           </div>
 
           <!-- Paper video. -->
-          <div class="columns is-centered has-text-centered">
+          <!-- <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
-              <!-- <h2 class="title is-3">Video</h2> -->
+              <h2 class="title is-3">Video</h2>
               <div class="publication-video">
                 <iframe
                   src="todo"
@@ -178,13 +178,11 @@
                 ></iframe>
               </div>
             </div>
-          </div>
+          </div> -->
           <!--/ Paper video. -->
         </div>
       </div>
     </section>
-
-    <div class="hr"></div>
 
     <section class="section">
       <div class="container is-max-desktop">
@@ -197,7 +195,7 @@
               fundamental capability for Visual Question Answering (VQA) and
               robotics. While Vision Language Models (VLM) have demonstrated
               remarkable performance in certain VQA benchmarks, they still lack
-              capabilities in 3D spatial reason ing, such as recognizing
+              capabilities in 3D spatial reasoning, such as recognizing
               qualitative relationships of physical objects like distances or
               size difference. We hypothesize that VLMs' limited spatial
               reasoning capability is due to the lack of 3D spatial knowledge in
@@ -212,8 +210,8 @@
               space. By co-training a VLM on such data, we significantly enhance
               its ability on both qualitative and quantitative spatial VQA.
               Finally, we demonstrate that this VLM unlocks novel downstream
-              applications 020 in chain-of-thought spatial reasoning and
-              robotics due to its quantitative estimation capability
+              applications in chain-of-thought spatial reasoning and robotics
+              due to its quantitative estimation capability.
               <!--/ Abstract. -->
             </div>
           </div>
@@ -227,20 +225,36 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-full-width has-text-justified">
-            <h2 class="title is-3 has-text-centered">Problem Setup</h2>
-            <div class="content has-text-justified">
-              <p>todo</p>
-            </div>
+            <h2 class="title is-3 has-text-centered">
+              Motivation & Key Insight
+            </h2>
             <div class="content has-text-centered">
               <img
-                src="./static/images/problem.png"
+                src="./static/images/teaser.png"
                 class="inline-figure-six"
-                alt="RaMP is a self-supervised reinforcement learning algorithm that pre-training on exploration trajectories
-                without (or with unknown) reward. It then quickly adapts to new tasks through interaction with the environment."
+                alt="Humans can perform spatial reasoning while VLMs doesn't."
               />
             </div>
             <div class="content has-text-justified">
-              <p>todo</p>
+              <p>
+                <b>Motivation:</b> Humans effortlessly determine spatial
+                relationships, such as the positioning of objects relative to
+                each other or estimating distances and sizes. This natural
+                proficiency in direct spatial reasoning tasks contrasts with the
+                current limitations of VLMs. Can we imbue VLMs with spatial
+                reasoning abilities akin to those of humans?
+              </p>
+            </div>
+            <h3 class="title is-4"></h3>
+            <div class="content has-text-justified">
+              <p>
+                <b>Key insight:</b> We hypothesize that the limited the spatial
+                reasoning abilities of current VLMs is not due to a fundamental
+                limitation of their architecture, but rather is a limitation in
+                common datasets available at scale on which such models are
+                trained. We co-train a multi-modal large language model on
+                synthetic spatial data to investigate this hypothesis.
+              </p>
             </div>
           </div>
         </div>
@@ -253,25 +267,61 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-full-width has-text-justified">
-            <h2 class="title is-3 has-text-centered">Method Overview</h2>
-            <h3 class="title is-4">Key Insight</h3>
+            <h2 class="title is-3 has-text-centered">Method</h2>
+
+            <h3 class="title is-4">Data Synthesis</h3>
             <div class="content has-text-justified">
-              <p>todo</p>
+              <p>
+                We develop an automatic 3D spatial VQA data generation framework
+                that lifts 2D images into metric scale 3d point clouds. We
+                scales the data pipeline up to 2 billion VQA examples on 10
+                million real-world images.
+              </p>
             </div>
             <div class="content has-text-centered">
               <img
-                src="./static/images/method.png"
+                src="./static/images/method.jpg"
                 class="inline-figure-six"
-                alt="Method"
+                alt="data synthesis pipeline"
               />
             </div>
-            <h3 class="title is-4">todo</h3>
+            <h3 class="title is-4">Learning Direct Spatial Reasoning</h3>
             <div class="content has-text-justified">
-              <p>todo</p>
+              <p>
+                We then mix the synthesized data into the training set of a
+                multi-modal large language model to train Spatial VLM. Such data
+                allows the model to answer intuitive spatial reasoning questions
+                such as the ones listed in the figure below. These elemental
+                abilities serves as the
+              </p>
             </div>
-            <h3 class="title is-4">todo</h3>
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/dataset_sample.jpg"
+                class="inline-figure-six"
+                alt="Samples of the dataset."
+              />
+            </div>
+            <h3 class="title is-4">Chain-of-thought Spatial Reasoning</h3>
             <div class="content has-text-justified">
-              <p>todo</p>
+              <p>
+                With the ability to perform direct spatial reasoning like
+                humans, we can let SpatialVLM perform Chain-of-Thought Spatial
+                reasoning. In this example, with the help of an LLM
+                orchestrating Spatial VLM,the system is able to answer questions
+                like “Does the blue coke can, the red coke can, and the
+                greensponge on the table roughly form an equilateral triangle".
+                This opens up future opportunities to generate more complex
+                spatial reasoning questions and answers to train a unified
+                multi-modal large lagnuage model.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/cot.jpg"
+                class="inline-figure-six"
+                alt="chain of thought spatial reasoning"
+              />
             </div>
           </div>
         </div>
@@ -286,32 +336,70 @@
           <div class="column is-full-width has-text-justified">
             <h2 class="title is-3 has-text-centered">Experiments</h2>
 
-            <h3 class="title is-4">todo</h3>
             <div class="content has-text-justified">
-              <p>todo</p>
+              <p>
+                Through extensive benchmark, we found our proposed framework can
+                significantly enhance the ability of visual language models in
+                performing different types of spatial reasoning like humans, as
+                well as unlocking novel downstream applications such as
+                robotics.
+              </p>
             </div>
+            <h3 class="title is-4">Qualitative and Quantiative Spatial VQA</h3>
 
+            <div class="content has-text-justified">
+              <p>
+                When prompted to answer free-form binary predicate prediction
+                question, such as which object is closer to the viewer,
+                SpatialVLM outperforms baselines on by a large margin owing to
+                the addition of synthetic data.
+              </p>
+            </div>
             <div class="content has-text-centered">
               <img
-                src="./static/images/goal_dist.png"
-                class="inline-figure-four-thirds"
-                alt="Goal distribution."
+                src="./static/images/qualitative_table.png"
+                class="inline-figure-six"
+                alt="Spatial VLM is able to perform quantitative spatial reasoning compared to baselines."
               />
             </div>
 
             <div class="content has-text-justified">
-              <p>todo</p>
+              <p>
+                When finetuned with unfreezed image encoder, SpatialVLM can be
+                prompted to answer quantitative spatial estimation question,
+                such as the horizontal distances between objects. In particular,
+                SpatialVLM outputs valid format more often than baseline methods
+                when prompted to. In addition, SpatialVLM outputs quantitative
+                distance estimation that is closer to ground truth annotated by
+                human more often than baseline methods, with 44.2% of its
+                answers falling with in 0.5x-2x range of the ground truth.
+              </p>
             </div>
             <div class="content has-text-centered">
               <img
-                src="./static/images/curves.png"
+                src="./static/images/quantitative_table.png"
+                class="inline-figure-six"
+                alt="Spatial VLM is able to perform quantitative spatial reasoning compared to baselines."
+              />
+            </div>
+
+            <h3 class="title is-4">As Dense Reward Annotator</h3>
+            <div class="content has-text-justified">
+              <p>
+                Due to its ability to intuitively reason about space
+                quantiatively in real-world units, SpatialVLM can be used as a
+                fine-grained reward-annotator for robotics tasks. In the figure
+                below, SpatialVLM correctly assigns a monotonically decreasing
+                distance estimation for an robot hand approaching a coke can,
+                which can be used as a reward signal for reinforcement learning.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/fractal_move_curve.jpg"
                 class="inline-figure-four-thirds"
                 alt="Comparison with baselines."
               />
-            </div>
-            <h3 class="title is-4">todo</h3>
-            <div class="content has-text-justified">
-              <p>todo</p>
             </div>
           </div>
         </div>
