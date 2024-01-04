@@ -226,7 +226,7 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-full-width has-text-justified">
             <h2 class="title is-3 has-text-centered">
-              Motivation & Key Insight
+              Limitations of multi-modal LLMs
             </h2>
             <div class="content has-text-centered">
               <img
@@ -307,21 +307,11 @@
               <p>
                 With the ability to perform direct spatial reasoning like
                 humans, we can let SpatialVLM perform Chain-of-Thought Spatial
-                reasoning. In this example, with the help of an LLM
-                orchestrating Spatial VLM,the system is able to answer questions
-                like “Does the blue coke can, the red coke can, and the
-                greensponge on the table roughly form an equilateral triangle".
-                This opens up future opportunities to generate more complex
-                spatial reasoning questions and answers to train a unified
-                multi-modal large lagnuage model.
+                reasoning by letting it talk with with an LLM. As we will show
+                later in experiments section, the direct reasoning capabilities,
+                when combined with chain-of-thought reasoning can answer many
+                multi-step questions.
               </p>
-            </div>
-            <div class="content has-text-centered">
-              <img
-                src="./static/images/cot.jpg"
-                class="inline-figure-six"
-                alt="chain of thought spatial reasoning"
-              />
             </div>
           </div>
         </div>
@@ -345,7 +335,7 @@
                 robotics.
               </p>
             </div>
-            <h3 class="title is-4">Qualitative and Quantiative Spatial VQA</h3>
+            <h3 class="title is-4">Spatial VQA</h3>
 
             <div class="content has-text-justified">
               <p>
@@ -357,9 +347,16 @@
             </div>
             <div class="content has-text-centered">
               <img
+                src="./static/images/qualitative_qa_samples.jpg"
+                class="inline-figure-six"
+                alt="qualitative spatial QA samples."
+              />
+              <img
                 src="./static/images/qualitative_table.png"
                 class="inline-figure-six"
-                alt="Spatial VLM is able to perform quantitative spatial reasoning compared to baselines."
+                alt="table for comparison with baselines"
+                height="auto"
+                width="500px"
               />
             </div>
 
@@ -377,13 +374,40 @@
             </div>
             <div class="content has-text-centered">
               <img
+                src="./static/images/quantitative_qa_samples.jpg"
+                class="inline-figure-six"
+                alt="qualitative spatial QA samples."
+              />
+              <img
                 src="./static/images/quantitative_table.png"
                 class="inline-figure-six"
                 alt="Spatial VLM is able to perform quantitative spatial reasoning compared to baselines."
+                height="auto"
+                width="500px"
               />
             </div>
 
-            <h3 class="title is-4">As Dense Reward Annotator</h3>
+            <h3 class="title is-4">Multi-step Spatial Reasoning</h3>
+            <div class="content has-text-justified">
+              <p>
+                In this example, with the help of an LLM orchestrating Spatial
+                VLM,the system is able to answer questions like “Does the blue
+                coke can, the red coke can, and the greensponge on the table
+                roughly form an equilateral triangle". This opens up future
+                opportunities to generate more complex spatial reasoning
+                questions and answers to train a unified multi-modal large
+                lagnuage model.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/cot.jpg"
+                class="inline-figure-six"
+                alt="chain of thought spatial reasoning"
+              />
+            </div>
+
+            <h3 class="title is-4">Robotics</h3>
             <div class="content has-text-justified">
               <p>
                 Due to its ability to intuitively reason about space
@@ -399,6 +423,21 @@
                 src="./static/images/fractal_move_curve.jpg"
                 class="inline-figure-four-thirds"
                 alt="Comparison with baselines."
+              />
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                In the figure below, we show SpatialVLM can be prompted to
+                annotate dense rewards for open-vocabulary robotic tasks, unlike
+                many prior methods that can only annotate a binary label of
+                success or failure.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img
+                src="./static/images/reward_heatmap.jpg"
+                class="inline-figure-four-thirds"
+                alt="reward heatmap."
               />
             </div>
           </div>
