@@ -137,6 +137,8 @@
                     >
                   </li>
                 </ul>
+                <br>
+                <p> <b>CVPR 2024 </b></p>
               </div>
               <br />
               <div class="column has-text-centered">
@@ -151,6 +153,17 @@
                         <i class="fas fa-file-pdf"></i>
                       </span>
                       <span>Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href="#community-implementation"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-code"></i>
+                      </span>
+                      <span>Community Implementation</span>
                     </a>
                   </span>
                   <!-- Video Link. -->
@@ -455,6 +468,36 @@
       </div>
     </section>
 
+    <section class="section" id="community-implementation">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full-width has-text-justified">
+            <h2 class="title is-3 has-text-centered">Community Implementation</h2>
+            <div class="content has-text-justified">
+              <p>
+                After releasing this paper, we were greeted with enthusiasm by the VLM research community. 
+                A shout-out to a user named remyxai for providing an open-source implementation of the data synthesis pipeline that closely follows our method. 
+                Check it out at: <a href="https://github.com/remyxai/VQASynth"> https://github.com/remyxai/VQASynth </a>
+
+                <div class="content has-text-centered">
+                  <a href="https://github.com/remyxai/VQASynth"> 
+                  <img
+                  src="https://raw.githubusercontent.com/remyxai/VQASynth/main/assets/VQASynth-diagram.png
+                    "
+                    class="inline-figure-four-thirds"
+                    alt="Comparison with baselines."
+                  />
+                </a>
+                </div>
+
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
@@ -464,7 +507,7 @@
               <p>
                 Special thanks Ying Xu and Chuyuan Kelly Fu for their help in
                 creating evaluation dataset, and thank Andy Zeng and Vincent
-                Vanhoucke for feedbacks on early drafts of this paper.
+                Vanhoucke for feedbacks on early drafts of this paper. Thanks to remyxai for providing an open-source implementation of the data synthesis pipeline.
               </p>
             </div>
           </div>
@@ -484,7 +527,18 @@
   year = {2024},
   url = {https://arxiv.org/abs/2401.12168},
 }</code></pre>
+
+<p> If you are using the open source implementation listed above, please also cite:</p>
+
+      <pre><code>@misc{VQASynth,
+        author = {remyxai},
+        title = {VQASynth},
+        year = {2024},
+        note = {GitHub repository},
+        url = {https://github.com/remyxai/VQASynth/tree/main}
+      }</code></pre>
       </div>
+
     </section>
   </body>
 </html>
